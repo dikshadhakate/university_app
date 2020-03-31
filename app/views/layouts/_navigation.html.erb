@@ -23,12 +23,25 @@
 	        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
 
 	      </ul>
+				<ul class="sidenav" id="mobile-demo">
+				  <li><a href="#">Courses</a></li>
+				  <li><a href="#">Enrollment</a></li>
+				  <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+				</ul>
 	    </div>
 	  </div>    
 	</nav>
-	<ul class="sidenav" id="mobile-demo">
-	  <li><a href="#">Courses</a></li>
-	  <li><a href="#">Enrollment</a></li>
-	  <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
-	</ul>
-	</header>
+	<% flash.each do |msg_key, msg_value| %>
+		<div class="container">
+			<div class="row center sign-up-form">
+			  <div class="col s12 m12 l12">
+					<div class="card-panel teal lighten-2" id="fade-out-target">
+						<span class="white-text">
+							<%= msg_value %>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>	
+	<% end %>			
+</header>
