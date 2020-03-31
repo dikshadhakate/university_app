@@ -9,11 +9,15 @@
 	      <div class="card blue-grey darken-1">
 	        <div class="card-content white-text">
 	          <span class="card-title"><%= course.course_code%>: <%= course.course_name%></span>
-	          <p><%= course.course_description %></p>
+	          <p><%= truncate(course.course_description, length: 100) %></p>
 	        </div>
 	        <div class="card-action">
-	          <a href="#">ENROLL</a>
+	        <% if logged_in? && !(current_user.courses.include?(course)) %>
+	          <%= link_to 'ENROLL', course_enroll_path(course_id: course.id), method: :post %>
 	          <a href="#">INFO</a>
+	        <% else %>  
+	          <a href="#">INFO</a>
+	        <% end %>  
 	        </div>
 	      </div>
 	    </div>
